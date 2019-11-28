@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "./node_modules/@deity/falcon-ui"
+		},
+		{
+			"path": "./node_modules/@deity/falcon-ui-kit",
+		}
+	],
+	"settings": {}
+}

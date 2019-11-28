@@ -18,6 +18,7 @@ import EyeOff from 'react-feather/dist/icons/eye-off';
 import { createTheme } from '@deity/falcon-ui';
 import { SignInIcon, AccountIcon } from '@deity/falcon-ui-kit';
 import { DeityLogo } from 'src/components/DeityLogo';
+import { Logo } from "src/components/Logo";
 
 export const deityGreenTheme = createTheme({
   colors: {
@@ -32,7 +33,7 @@ export const deityGreenTheme = createTheme({
 
   icons: {
     logo: {
-      icon: DeityLogo,
+      icon: Logo,
       stroke: 'none'
     },
     signIn: { icon: SignInIcon },
