@@ -18,7 +18,7 @@ import { ThemeEditor, ThemeEditorState } from '@deity/falcon-theme-editor';
 import loadable from 'src/components/loadable';
 import logo from 'src/assets/logo.png';
 import DynamicRoute from 'src/pages/DynamicRoute';
-import { Header, PageFooter, SidebarContainer, MenuContainer, Menu, ErrorBoundary } from './components';
+import { Header, PageFooter, SidebarContainer, SideMenuContainer, SideMenu, ErrorBoundary } from './components';
 import { deityGreenTheme, globalCss } from './theme';
 
 const HeadMetaTags = () => (
@@ -105,11 +105,11 @@ const App = () => (
                         }
                       </NetworkStatus>
                       <Header />
-                      <MenuContainer>
-                        {sidebarMenuProps => (
-                          <Menu {...sidebarMenuProps} />
+                      <SideMenuContainer>
+                        {sideMenuProps => (
+                          <SideMenu {...sideMenuProps} />
                         )}
-                      </MenuContainer>
+                      </SideMenuContainer>
                       <ErrorBoundary>
                         <Switch>
                           <Route exact path="/" component={Home} />
