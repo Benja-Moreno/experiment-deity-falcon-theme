@@ -5,7 +5,8 @@ import {
   Portal,
   Backdrop,
   Icon,
-  Box
+  Box,
+  List
 } from "@deity/falcon-ui";
 
 import { RouterLink } from "@deity/falcon-ui-kit";
@@ -46,11 +47,15 @@ const sidebarSideToPosition = {
 };
 
 export const SideMenuContents = ({ items }) => (
-  <React.Fragment>
+  <List {...ListStyles}>
     {items.map(item => (
-      <li key={item.urlPath}>
-            <SideMenuItem item={item} />
-      </li>
+      <SideMenuItem item={item} />
     ))}
-  </React.Fragment>
+  </List>
 );
+
+const ListStyles = {
+  css: {
+    listStyle: "none"
+  }
+};
