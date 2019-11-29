@@ -6,14 +6,30 @@ import { RouterLink } from "@deity/falcon-ui-kit";
 export class SideMenuItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+      this.state = {
+          open: false
+      };
+      // this.toggleMenuState = this.toggleMenuState.bind(this);
+      
+  }
+    
+    
+    toggleMenuState() {
+        const { open } = this.state;
+        this.setState({
+          open: !open
+        });
   }
 
-  getMenuItemHtml(item) {
+    getMenuItemHtml(item) {
+      const { open } = this.state;
     if (item.children && item.children.length > 0) {
       return (
         <React.Fragment>
-          <button>{item.name}</button>
+          <button onClick={e => this.toggleMenuState(e)}>{item.name}</button>
+              {open &&
+                  <p>OPen</p>
+          }
           <ul>
             <li>
               <RouterLink p="sm" to={item.urlPath}>
