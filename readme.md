@@ -36,4 +36,14 @@ Once they are both up and running you should be give a message with the location
 ### Step 4
 If you visit the client URL e.g. `http://localhost:3000/` you should now see your site running. 
 
-Now we need to set up your local workflow 
+Now we need to set up your local workflow.
+
+First things first, let's ignore the files we don\'t want to be commited.
+
+- cd into your client directory. `/Users/[YOUR USER]/web/my-app/client`.
+- Initiate git. `git init`. If you don't have git running on your machine you can follow [this](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) tutorial.
+- We now need to create a .gitignore. `nano .gitignore`.
+- To start with add the following paths to your gitignore `node_modules`, `build`.
+- The final gitignore file should look like [this](https://github.com/hobadams/experiment-deity-falcon-theme/blob/master/.gitignore)
+
+If you're using VScode as your code editor I recommend creating a workspace and adding the following direcotries to it `./node_modules/@deity/falcon-ui` & `./node_modules/@deity/falcon-ui-kit`. You can always steal [mine](https://github.com/hobadams/experiment-deity-falcon-theme/blob/master/falcon-client.code-workspace)
