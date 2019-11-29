@@ -50,4 +50,8 @@ If you're using VScode as your code editor I recommend creating a workspace and 
 
 ## Styling
 
-### 
+TBC
+
+## Create the menu
+
+TBC
