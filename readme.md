@@ -47,3 +47,7 @@ First things first, let's ignore the files we don\'t want to be commited.
 - The final gitignore file should look like [this](https://github.com/hobadams/experiment-deity-falcon-theme/blob/master/.gitignore)
 
 If you're using VScode as your code editor I recommend creating a workspace and adding the following direcotries to it `./node_modules/@deity/falcon-ui` & `./node_modules/@deity/falcon-ui-kit`. You can always steal [mine](https://github.com/hobadams/experiment-deity-falcon-theme/blob/master/falcon-client.code-workspace)
+
+## Styling
+
+### 

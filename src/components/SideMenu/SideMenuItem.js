@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { RouterLink } from "@deity/falcon-ui-kit";
 import { List, ListItem, Icon, Button } from "@deity/falcon-ui";
 
+import { SideMenuContainer } from "./SideMenuContainer";
+
 /**
  * Parent Menu Item
  */
@@ -36,32 +38,54 @@ export class Item extends React.Component {
     const { open } = this.state;
     if (item.children && item.children.length > 0) {
       return (
-        <React.Fragment>
-          <Button onClick={e => this.toggleMenuState(e)} {...ButtonStyles}>
-            <span>{item.name}</span>
-            <Icon
-              src={open ? "dropdownArrowUp" : "dropdownArrowDown"}
-              {...IconStyles}
-            />
-          </Button>
-          <List display={open ? "block" : "none"} {...ListStyles}>
-            <ListItem {...ItemStyles}>
-              <RouterLink p="sm" to={item.urlPath} {...LinkStyles}>
-                View all {item.name}
-              </RouterLink>
-            </ListItem>
-            {item.children.map(subItem => (
-              <SideMenuItem key={subItem.urlPath} item={subItem} open={open} />
-            ))}
-          </List>
-        </React.Fragment>
+        <SideMenuContainer>
+          {sideMenuProps => (
+            <React.Fragment>
+              <Button onClick={e => this.toggleMenuState(e)} {...ButtonStyles}>
+                <span>{item.name}</span>
+                <Icon
+                  src={open ? "dropdownArrowUp" : "dropdownArrowDown"}
+                  {...IconStyles}
+                />
+              </Button>
+              <List display={open ? "block" : "none"} {...ListStyles}>
+                <ListItem {...ItemStyles}>
+                  <RouterLink
+                    p="sm"
+                    to={item.urlPath}
+                    {...LinkStyles}
+                    onClick={sideMenuProps.toggle}
+                  >
+                    View all {item.name}
+                  </RouterLink>
+                </ListItem>
+                {item.children.map(subItem => (
+                  <SideMenuItem
+                    key={subItem.urlPath}
+                    item={subItem}
+                    open={open}
+                  />
+                ))}
+              </List>
+            </React.Fragment>
+          )}
+        </SideMenuContainer>
       );
     }
 
     return (
-      <RouterLink p="sm" to={item.urlPath} {...LinkStyles}>
-        {item.name}
-      </RouterLink>
+      <SideMenuContainer>
+        {sideMenuProps => (
+          <RouterLink
+            p="sm"
+            to={item.urlPath}
+            {...LinkStyles}
+            onClick={sideMenuProps.toggle}
+          >
+            {item.name}
+          </RouterLink>
+        )}
+      </SideMenuContainer>
     );
   }
 }

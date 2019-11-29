@@ -9,7 +9,6 @@ import {
   List
 } from "@deity/falcon-ui";
 
-import { RouterLink } from "@deity/falcon-ui-kit";
 import { MenuQuery } from "@deity/falcon-shop-data";
 import { SideMenuItem } from "./SideMenuItem";
 
@@ -49,7 +48,7 @@ const sidebarSideToPosition = {
 export const SideMenuContents = ({ items }) => (
   <List {...ListStyles}>
     {items.map(item => (
-      <SideMenuItem item={item} />
+      <SideMenuItem key={item.urlPath} item={item} />
     ))}
   </List>
 );
