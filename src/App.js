@@ -18,7 +18,7 @@ import { ThemeEditor, ThemeEditorState } from '@deity/falcon-theme-editor';
 import loadable from 'src/components/loadable';
 import logo from 'src/assets/logo.png';
 import DynamicRoute from 'src/pages/DynamicRoute';
-import { Header, PageFooter, SidebarContainer, ErrorBoundary } from './components';
+import { Header, PageFooter, SidebarContainer, MenuContainer, Menu, ErrorBoundary } from './components';
 import { deityGreenTheme, globalCss } from './theme';
 
 const HeadMetaTags = () => (
@@ -85,27 +85,58 @@ const App = () => (
                         {({ isWaiting, skipWaiting }) =>
                           isWaiting ? (
                             <Box>
-                              Site has updated. To see changes close other tabs or
-                              <Button size="ms" p="xs" m="sm" onClick={() => skipWaiting()}>
+                              Site has updated. To see changes close other tabs
+                              or
+                              <Button
+                                size="ms"
+                                p="xs"
+                                m="sm"
+                                onClick={() => skipWaiting()}
+                              >
                                 click here
                               </Button>
                             </Box>
                           ) : null
                         }
                       </ServiceWorker>
-                      <NetworkStatus>{({ isOnline }) => !isOnline && <Box>you are offline.</Box>}</NetworkStatus>
+                      <NetworkStatus>
+                        {({ isOnline }) =>
+                          !isOnline && <Box>you are offline.</Box>
+                        }
+                      </NetworkStatus>
                       <Header />
+                      <MenuContainer>
+                        {sidebarMenuProps => (
+                          <Menu {...sidebarMenuProps} />
+                        )}
+                      </MenuContainer>
                       <ErrorBoundary>
                         <Switch>
                           <Route exact path="/" component={Home} />
                           <Route exact path="/blog/:page?" component={Blog} />
                           <Route exact path="/cart" component={Cart} />
                           <Route exact path="/checkout" component={Checkout} />
-                          <Route exact path="/checkout/confirmation" component={CheckoutConfirmation} />
-                          <Route exact path="/checkout/failure" component={CheckoutFailure} />
+                          <Route
+                            exact
+                            path="/checkout/confirmation"
+                            component={CheckoutConfirmation}
+                          />
+                          <Route
+                            exact
+                            path="/checkout/failure"
+                            component={CheckoutFailure}
+                          />
                           <ProtectedRoute path="/account" component={Account} />
-                          <OnlyUnauthenticatedRoute exact path="/sign-in" component={SignIn} />
-                          <OnlyUnauthenticatedRoute exact path="/reset-password" component={ResetPassword} />
+                          <OnlyUnauthenticatedRoute
+                            exact
+                            path="/sign-in"
+                            component={SignIn}
+                          />
+                          <OnlyUnauthenticatedRoute
+                            exact
+                            path="/reset-password"
+                            component={ResetPassword}
+                          />
                           <DynamicRoute />
                         </Switch>
                         <PageFooter />
@@ -122,7 +153,9 @@ const App = () => (
                 </CurrencyProvider>
               </LocaleProvider>
             </ThemeProvider>
-            {ThemeEditorComponent && <ThemeEditorComponent theme={theme} {...editorRest} side="left" />}
+            {ThemeEditorComponent && (
+              <ThemeEditorComponent theme={theme} {...editorRest} side="left" />
+            )}
           </React.Fragment>
         )}
       </ThemeEditorState>

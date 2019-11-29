@@ -1,5 +1,9 @@
 import { getClientConfigResolver } from '@deity/falcon-front-kit';
-import { openSidebarResolver, closeSidebarResolver } from 'src/components';
+import {
+  openSidebarResolver,
+  closeSidebarResolver,
+  toggleMenuResolver
+} from "src/components";
 
 /**
  * Defines client-side state resolvers
@@ -9,9 +13,14 @@ export default {
   data: {
     sidebar: {
       contentType: null,
-      side: 'right',
+      side: "right",
       isOpen: false,
-      __typename: 'SidebarStatus'
+      __typename: "SidebarStatus"
+    },
+
+    menu: {
+      isOpen: false,
+      __typename: "MenuStatus"
     }
   },
 
@@ -22,7 +31,8 @@ export default {
 
     Mutation: {
       openSidebar: openSidebarResolver,
-      closeSidebar: closeSidebarResolver
+      closeSidebar: closeSidebarResolver,
+      toggleMenu: toggleMenuResolver
     }
   }
 };

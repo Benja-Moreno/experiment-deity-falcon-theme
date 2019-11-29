@@ -19,208 +19,216 @@ import { createTheme } from '@deity/falcon-ui';
 import { SignInIcon, AccountIcon } from '@deity/falcon-ui-kit';
 import { DeityLogo } from 'src/components/DeityLogo';
 import { Logo } from "src/components/Logo";
+import { red } from 'ansi-colors';
 
 export const deityGreenTheme = createTheme({
-  colors: {
-    primary: '#222222',
-    primaryLight: '#95c110',
-    black: '#000000'
-  },
+         colors: {
+           primary: "#222222",
+           primaryLight: "#be3737",
+           black: "#000000"
+         },
 
-  fontWeights: {
-    bold: 500
-  },
+         spacing: {
+           logoWidth: 150,
+           logoHeight: 150
+         },
 
-  icons: {
-    logo: {
-      icon: Logo,
-      stroke: 'none'
-    },
-    signIn: { icon: SignInIcon },
-    account: { icon: AccountIcon },
-    loader: {
-      icon: props => (
-        <svg viewBox="0 0 50 50" {...props}>
-          <path
-            d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z"
-            transform="rotate(241.969 25 25)"
-          >
-            <animateTransform
-              attributeType="xml"
-              attributeName="transform"
-              type="rotate"
-              from="0 25 25"
-              to="360 25 25"
-              dur="0.8s"
-              repeatCount="indefinite"
-            />
-          </path>
-        </svg>
-      ),
-      size: 'xxl',
-      stroke: 'transparent',
-      fill: 'primaryLight'
-    },
-    cart: { icon: ShoppingCart },
-    user: { icon: User },
-    arrowRight: { icon: ChevronRight },
-    dropdownArrowDown: {
-      icon: ChevronDown,
-      size: 'md',
-      ml: 'xs'
-    },
-    dropdownArrowUp: {
-      icon: ChevronUp,
-      size: 'md',
-      ml: 'xs'
-    },
-    buttonArrowRight: {
-      icon: ChevronRight,
-      size: 'md',
-      ml: 'xs',
-      stroke: 'white'
-    },
-    close: {
-      icon: Close,
-      css: {
-        cursor: 'pointer'
-      }
-    },
-    logOut: { icon: LogOut },
-    remove: { icon: Remove },
-    nextPage: {
-      icon: ChevronsRight,
-      stroke: 'black'
-    },
-    prevPage: {
-      icon: ChevronsLeft,
-      stroke: 'black'
-    },
-    lock: { icon: Lock },
-    trash: { icon: Trash },
-    check: { icon: Check },
-    checkCircle: { icon: CheckCircle },
-    eye: { icon: Eye },
-    eyeOff: { icon: EyeOff }
-  },
-  keyframes: {
-    loader: {
-      '0%': {
-        transform: 'rotateZ(0)'
-      },
-      '100%': {
-        transform: 'rotateZ(360deg)'
-      }
-    }
-  },
-  components: {
-    icon: {
-      stroke: 'black'
-    },
+         fontWeights: {
+           bold: 500
+         },
 
-    gridLayout: {
-      gridGap: 'md'
-    },
+         icons: {
+           logo: {
+             icon: Logo,
+             fill: "white",
+             stroke: "transparent"
+           },
+           signIn: { icon: SignInIcon },
+           account: { icon: AccountIcon },
+           loader: {
+             icon: props => (
+               <svg viewBox="0 0 50 50" {...props}>
+                 <path
+                   d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z"
+                   transform="rotate(241.969 25 25)"
+                 >
+                   <animateTransform
+                     attributeType="xml"
+                     attributeName="transform"
+                     type="rotate"
+                     from="0 25 25"
+                     to="360 25 25"
+                     dur="0.8s"
+                     repeatCount="indefinite"
+                   />
+                 </path>
+               </svg>
+             ),
+             size: "xxl",
+             stroke: "transparent",
+             fill: "primaryLight"
+           },
+           cart: { icon: ShoppingCart },
+           user: { icon: User },
+           arrowRight: { icon: ChevronRight },
+           dropdownArrowDown: {
+             icon: ChevronDown,
+             size: "md",
+             ml: "xs"
+           },
+           dropdownArrowUp: {
+             icon: ChevronUp,
+             size: "md",
+             ml: "xs"
+           },
+           buttonArrowRight: {
+             icon: ChevronRight,
+             size: "md",
+             ml: "xs",
+             stroke: "white"
+           },
+           close: {
+             icon: Close,
+             css: {
+               cursor: "pointer"
+             }
+           },
+           logOut: { icon: LogOut },
+           remove: { icon: Remove },
+           nextPage: {
+             icon: ChevronsRight,
+             stroke: "black"
+           },
+           prevPage: {
+             icon: ChevronsLeft,
+             stroke: "black"
+           },
+           lock: { icon: Lock },
+           trash: { icon: Trash },
+           check: { icon: Check },
+           checkCircle: { icon: CheckCircle },
+           eye: { icon: Eye },
+           eyeOff: { icon: EyeOff }
+         },
+         keyframes: {
+           loader: {
+             "0%": {
+               transform: "rotateZ(0)"
+             },
+             "100%": {
+               transform: "rotateZ(360deg)"
+             }
+           }
+         },
+         components: {
+           icon: {
+             stroke: "black"
+           },
 
-    breadcrumb: {
-      css: ({ theme }) => ({
-        ':last-child': {
-          pointerEvents: 'none',
-          fontWeight: theme.fontWeights.bold,
-          color: theme.colors.primaryLight,
-          '::after': {
-            display: 'none'
-          }
-        }
-      })
-    },
+           gridLayout: {
+             gridGap: "md"
+           },
 
-    navbar: {
-      bgFullWidth: 'primary',
-      css: {
-        zIndex: 2
-      }
-    },
+           breadcrumb: {
+             css: ({ theme }) => ({
+               ":last-child": {
+                 pointerEvents: "none",
+                 fontWeight: theme.fontWeights.bold,
+                 color: theme.colors.primaryLight,
+                 "::after": {
+                   display: "none"
+                 }
+               }
+             })
+           },
 
-    sidebar: {
-      px: 'sm',
-      pt: 'sm',
-      boxShadow: 'subtle',
-      css: {
-        boxSizing: 'border-box',
-        width: {
-          xs: '80vw',
-          sm: 510
-        }
-      }
-    },
+           navbar: {
+             bgFullWidth: "primary",
+             css: {
+               zIndex: 2
+             }
+           },
 
-    badge: {
-      bg: 'primaryLight',
-      color: 'black'
-    },
+           sidebar: {
+             px: "sm",
+             pt: "sm",
+             boxShadow: "subtle",
+             css: {
+               boxSizing: "border-box",
+               width: {
+                 xs: "80vw",
+                 sm: 510
+               }
+             }
+           },
 
-    button: {
-      px: 'xl',
-      height: 'xl',
-      bg: 'black',
-      css: {
-        transitionProperty: 'all',
-        textTransform: 'capitalize'
-      },
+           badge: {
+             bg: "primaryLight",
+             color: "black"
+           },
 
-      variants: {
-        loader: {
-          size: 'xl',
-          borderRadius: 'round',
-          border: 'bold',
-          borderColor: 'primary',
-          p: 'none',
-          css: props => ({
-            animation: `${props.theme.keyframes.loader} .8s linear infinite`,
-            borderRightColor: props.theme.colors.white,
-            background: 'none',
-            fontSize: 0,
-            whiteSpace: 'nowrap',
-            cursor: 'default',
-            overflow: 'hidden',
+           button: {
+             px: "xl",
+             height: "xl",
+             bg: "black",
+             css: {
+               transitionProperty: "all",
+               textTransform: "capitalize"
+             },
 
-            ':hover': {
-              borderColor: props.theme.colors.primaryLight,
-              borderRightColor: props.theme.colors.white
-            }
-          })
-        }
-      }
-    },
+             variants: {
+               loader: {
+                 size: "xl",
+                 borderRadius: "round",
+                 border: "bold",
+                 borderColor: "primary",
+                 p: "none",
+                 css: props => ({
+                   animation: `${props.theme.keyframes.loader} .8s linear infinite`,
+                   borderRightColor: props.theme.colors.white,
+                   background: "none",
+                   fontSize: 0,
+                   whiteSpace: "nowrap",
+                   cursor: "default",
+                   overflow: "hidden",
 
-    input: {
-      height: 'xl'
-    },
-    select: {
-      height: 'xl'
-    },
-    label: {
-      fontSize: 'xs',
-      fontWeight: 'bold'
-    },
-    footer: {
-      mt: 'md'
-    },
-    localePicker: {
-      css: {
-        margin: '0 auto',
-        zIndex: 2
-      }
-    }
-  }
-});
+                   ":hover": {
+                     borderColor: props.theme.colors.primaryLight,
+                     borderRightColor: props.theme.colors.white
+                   }
+                 })
+               }
+             }
+           },
+
+           input: {
+             height: "xl"
+           },
+           select: {
+             height: "xl"
+           },
+           label: {
+             fontSize: "xs",
+             fontWeight: "bold"
+           },
+           footer: {
+             mt: "md"
+           },
+           localePicker: {
+             css: {
+               margin: "0 auto",
+               zIndex: 2
+             }
+           }
+         }
+       });
 
 export const globalCss = {
-  body: {
-    margin: 0
-  },
-  html: {
-    overflowY: 'scroll'
-  }
-};
+         body: {
+           margin: 0,
+           background: "#282B3C"
+         },
+         html: {
+           overflowY: "scroll"
+         }
+       };
